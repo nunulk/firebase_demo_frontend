@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -17,6 +18,20 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  router: {
+    middleware: ['token-loader'],
+  },
+  modules: [
+    '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
+  ],
+  plugins: [
+    '~/plugins/bootstrap',
+    '~/plugins/firebase',
+  ],
+  axios: {
+    baseURL: process.env.API_BASE_URL || 'http://localhost:8000',
+  },
   /*
   ** Build configuration
   */
